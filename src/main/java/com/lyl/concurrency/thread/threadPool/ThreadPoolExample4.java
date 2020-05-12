@@ -1,4 +1,4 @@
-package com.lyl.concurrency.threadPool;
+package com.lyl.concurrency.thread.threadPool;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @Author Liuyanling
  * @Date 2020/5/12 10:17
+ * @Descripiton 可重入锁 功能4：tryLock()支持超时
  */
 public class ReentrantLockDemo4 {
     private static final ReentrantLock reentrantLock = new ReentrantLock();
@@ -33,10 +34,10 @@ public class ReentrantLockDemo4 {
     public static void testTryLock() throws InterruptedException {
 
         System.out.println(System.currentTimeMillis());
-        //璁剧疆瓒呮椂鏃堕棿
+        //设置超时时间
         if (reentrantLock.tryLock(10, TimeUnit.SECONDS)) {
             try {
-                System.out.println("绾跨▼" + Thread.currentThread().getName());
+                System.out.println("线程" + Thread.currentThread().getName());
             }finally {
                 reentrantLock.unlock();
             }
@@ -46,12 +47,12 @@ public class ReentrantLockDemo4 {
 
 
     public static void testLock() {
-        //涓巐ock杩涜瀵规瘮 浣跨敤lock鏂规硶濡傛灉涓嶉噴鏀鹃攣锛岄偅涔堜細涓?鐩存寔鏈夈??
+        //与lock进行对比 使用lock方法如果不释放锁，那么会一直持有。
         reentrantLock.lock();
         try {
-            System.out.println("绾跨▼" + Thread.currentThread().getName());
+            System.out.println("线程" + Thread.currentThread().getName());
         } finally {
-            // 淇濊瘉閿佽兘閲婃斁
+            // 保证锁能释放
             //reentrantLock.unlock();
         }
     }

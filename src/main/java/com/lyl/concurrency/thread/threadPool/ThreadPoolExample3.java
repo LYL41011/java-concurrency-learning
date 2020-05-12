@@ -1,10 +1,9 @@
-package com.lyl.concurrency.threadPool;
+package com.lyl.concurrency.thread.threadPool;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 @Slf4j
 public class ThreadPoolExample3 {
