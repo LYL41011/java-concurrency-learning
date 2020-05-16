@@ -9,12 +9,15 @@ import java.util.concurrent.TimeUnit;
  * @Date 2020/5/10
  */
 public class ThreadPoolUtils {
-    public static ThreadPoolExecutor getThreadPool(){
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(20, 50,
-                0L, TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(5));
-        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
-
+    public static ThreadPoolExecutor getThreadPool() {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5,
+                1000L, TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<>(5)
+                , new ThreadPoolExecutor.AbortPolicy());
         return executor;
+    }
+
+    public static void main(String[] args) {
+        getThreadPool();
     }
 }

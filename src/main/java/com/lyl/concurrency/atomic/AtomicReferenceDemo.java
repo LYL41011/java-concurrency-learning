@@ -7,7 +7,11 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 @ThreadSafe
-public class AtomicExample4 {
+/**
+ * @Author: 微信公众号【胖滚猪学编程】
+ * @Date 2020/5/10
+ */
+public class AtomicReferenceDemo {
 
     private static AtomicReference<Integer> count = new AtomicReference<>(0);
 

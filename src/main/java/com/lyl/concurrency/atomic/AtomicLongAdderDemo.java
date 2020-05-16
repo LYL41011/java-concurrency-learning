@@ -11,7 +11,11 @@ import java.util.concurrent.atomic.LongAdder;
 
 @Slf4j
 @ThreadSafe
-public class AtomicExample3 {
+/**
+ * @Author: 微信公众号【胖滚猪学编程】
+ * @Date 2020/5/10
+ */
+public class AtomicLongAdderDemo {
 
     // 请求总数
     public static int clientTotal = 5000;

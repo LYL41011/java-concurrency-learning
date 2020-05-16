@@ -5,10 +5,10 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @Author Liuyanling
  * @Date 2020/5/12 10:17
- * @Descripiton ¿ÉÖØÈëËø ¹¦ÄÜ2£º¹«Æ½²ßÂÔ
+ * @Descripiton å¯é‡å…¥é” åŠŸèƒ½2ï¼šå…¬å¹³ç­–ç•¥
  */
 public class ReentrantLockDemo2 {
-    // ·Ö±ğ²âÊÔÎªtrue ºÍ ÎªfalseµÄÊä³ö
+    // åˆ†åˆ«æµ‹è¯•ä¸ºtrue å’Œ ä¸ºfalseçš„è¾“å‡º
     private static final ReentrantLock reentrantLock = new ReentrantLock(true);
     public static void main(String[] args) throws InterruptedException {
         ReentrantLockDemo2 demo2 = new ReentrantLockDemo2();
@@ -21,7 +21,7 @@ public class ReentrantLockDemo2 {
     public static void test() {
         reentrantLock.lock();
         try {
-            System.out.println("Ïß³Ì" + Thread.currentThread().getName());
+            System.out.println("çº¿ç¨‹" + Thread.currentThread().getName());
         } finally {
             reentrantLock.unlock();
         }

@@ -9,6 +9,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
 @ThreadSafe
+/**
+ * @Author: 微信公众号【胖滚猪学编程】
+ * @Date 2020/5/10
+ */
 public class AtomicIntegerDemo {
 
     private static AtomicInteger count = new AtomicInteger(0);

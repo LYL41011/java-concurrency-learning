@@ -7,9 +7,9 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @Author Liuyanling
  * @Date 2020/5/12 10:17
- * @Descripiton ¿ÉÖØÈëËø ¹¦ÄÜ5£ºÌá¹©ÄÜ¹»ÖĞ¶ÏµÈ´ıËøµÄÏß³ÌµÄ»úÖÆ£¬lockInterruptibly·½·¨
- * ReentrantLockµÄÖĞ¶ÏºÍ·ÇÖĞ¶Ï¼ÓËøÄ£Ê½µÄÇø±ğÔÚÓÚ£ºÏß³Ì³¢ÊÔ»ñÈ¡Ëø²Ù×÷Ê§°Üºó£¬ÔÚµÈ´ı¹ı³ÌÖĞ£¬Èç¹û¸ÃÏß³Ì±»ÆäËûÏß³ÌÖĞ¶ÏÁË£¬ËüÊÇÈçºÎÏìÓ¦ÖĞ¶ÏÇëÇóµÄ£¿£¿
- * lock·½·¨»áºöÂÔÖĞ¶ÏÇëÇó£¬¼ÌĞø»ñÈ¡ËøÖ±µ½³É¹¦£»¶ølockInterruptiblyÔòÖ±½ÓÅ×³öÖĞ¶ÏÒì³£À´Á¢¼´ÏìÓ¦ÖĞ¶Ï£¬ÓÉÉÏ²ãµ÷ÓÃÕß´¦ÀíÖĞ¶Ï¡£
+ * @Descripiton å¯é‡å…¥é” åŠŸèƒ½5ï¼šæä¾›èƒ½å¤Ÿä¸­æ–­ç­‰å¾…é”çš„çº¿ç¨‹çš„æœºåˆ¶ï¼ŒlockInterruptiblyæ–¹æ³•
+ * ReentrantLockçš„ä¸­æ–­å’Œéä¸­æ–­åŠ é”æ¨¡å¼çš„åŒºåˆ«åœ¨äºï¼šçº¿ç¨‹å°è¯•è·å–é”æ“ä½œå¤±è´¥åï¼Œåœ¨ç­‰å¾…è¿‡ç¨‹ä¸­ï¼Œå¦‚æœè¯¥çº¿ç¨‹è¢«å…¶ä»–çº¿ç¨‹ä¸­æ–­äº†ï¼Œå®ƒæ˜¯å¦‚ä½•å“åº”ä¸­æ–­è¯·æ±‚çš„ï¼Ÿï¼Ÿ
+ * lockæ–¹æ³•ä¼šå¿½ç•¥ä¸­æ–­è¯·æ±‚ï¼Œç»§ç»­è·å–é”ç›´åˆ°æˆåŠŸï¼›è€ŒlockInterruptiblyåˆ™ç›´æ¥æŠ›å‡ºä¸­æ–­å¼‚å¸¸æ¥ç«‹å³å“åº”ä¸­æ–­ï¼Œç”±ä¸Šå±‚è°ƒç”¨è€…å¤„ç†ä¸­æ–­ã€‚
  */
 public class ReentrantLockDemo5 {
     private static final ReentrantLock reentrantLock1 = new ReentrantLock();
@@ -21,14 +21,14 @@ public class ReentrantLockDemo5 {
             try {
                 deadLock(reentrantLock1, reentrantLock2);
             } catch (InterruptedException e) {
-                System.out.println("Ïß³ÌA±»ÖĞ¶Ï");
+                System.out.println("çº¿ç¨‹Aè¢«ä¸­æ–­");
             }
         }, "A");
         Thread th2 = new Thread(() -> {
             try {
                 deadLock(reentrantLock2, reentrantLock1);
             } catch (InterruptedException e) {
-                System.out.println("Ïß³ÌB±»ÖĞ¶Ï");
+                System.out.println("çº¿ç¨‹Bè¢«ä¸­æ–­");
             }
         }, "B");
         th1.start();
@@ -39,7 +39,7 @@ public class ReentrantLockDemo5 {
 
 
     public static void deadLock(Lock lock1, Lock lock2) throws InterruptedException {
-        lock1.lockInterruptibly(); //Èç¹û¸Ä³ÉÓÃlockÄÇÃ´ÊÇ»áÒ»Ö±ËÀËøµÄ
+        lock1.lockInterruptibly(); //å¦‚æœæ”¹æˆç”¨locké‚£ä¹ˆæ˜¯ä¼šä¸€ç›´æ­»é”çš„
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -47,7 +47,7 @@ public class ReentrantLockDemo5 {
         }
         lock2.lockInterruptibly();
         try {
-            System.out.println("Ö´ĞĞÍê³É");
+            System.out.println("æ‰§è¡Œå®Œæˆ");
         } finally {
             lock1.unlock();
             lock2.unlock();

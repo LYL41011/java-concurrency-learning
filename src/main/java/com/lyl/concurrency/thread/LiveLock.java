@@ -2,12 +2,14 @@ package com.lyl.concurrency.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Ò»¸ö¼òµ¥µÄ»îËøÀà
- * Ê×ÏÈ²»»á´æÔÚËÀËøµÄÇé¿ö ÒòÎª²¢·Ç²»¿ÉÇÀÕ¼ ¶ø»áÊÍ·ÅËø
- * »îËøµÄÇé¿ö£º»¥Ïà³ÖÓĞ¸÷×ÔµÄËø£¬·¢ÏÖĞèÒªµÄ¶Ô·½µÄËø¶¼±»¶Ô·½³ÖÓĞ£¬¾Í»áÊÍ·Åµ±Ç°³ÖÓĞµÄËø£¬µ¼ÖÂ´ó¼Ò¶¼ÔÚ²»Í£³ÖËø£¬ÊÍ·ÅËø£¬µ«ÊÂÇé»¹Ã»×ö¡£µ±È»»¹ÊÇ»á´æÔÚ×ªÕË³É¹¦µÄÇé¾°£¬²»¹ıĞ§ÂÊµÍÏÂ¡£
- * Ïß³Ì½Ï¶àµÄÇé¿ö»áµ¼ÖÂ²¿·ÖÏß³ÌÊ¼ÖÕÎŞ·¨»ñÈ¡µ½Ëø£¬µ¼ÖÂ»îËø
+ * ä¸€ä¸ªç®€å•çš„æ´»é”ç±»
+ * é¦–å…ˆä¸ä¼šå­˜åœ¨æ­»é”çš„æƒ…å†µ å› ä¸ºå¹¶éä¸å¯æŠ¢å  è€Œä¼šé‡Šæ”¾é”
+ * æ´»é”çš„æƒ…å†µï¼šäº’ç›¸æŒæœ‰å„è‡ªçš„é”ï¼Œå‘ç°éœ€è¦çš„å¯¹æ–¹çš„é”éƒ½è¢«å¯¹æ–¹æŒæœ‰ï¼Œå°±ä¼šé‡Šæ”¾å½“å‰æŒæœ‰çš„é”ï¼Œå¯¼è‡´å¤§å®¶éƒ½åœ¨ä¸åœæŒé”ï¼Œé‡Šæ”¾é”ï¼Œä½†äº‹æƒ…è¿˜æ²¡åšã€‚å½“ç„¶è¿˜æ˜¯ä¼šå­˜åœ¨è½¬è´¦æˆåŠŸçš„æƒ…æ™¯ï¼Œä¸è¿‡æ•ˆç‡ä½ä¸‹ã€‚
+ * çº¿ç¨‹è¾ƒå¤šçš„æƒ…å†µä¼šå¯¼è‡´éƒ¨åˆ†çº¿ç¨‹å§‹ç»ˆæ— æ³•è·å–åˆ°é”ï¼Œå¯¼è‡´æ´»é”
  */
 
 @Slf4j
@@ -38,23 +40,23 @@ public class LiveLock {
         Boolean isContinue = true;
         while (isContinue) {
             if (source.getLock().tryLock()) {
-                log.info("{}ÒÑ»ñÈ¡Ëø time{}", source.getLock(),System.currentTimeMillis());
+                log.info("{}å·²è·å–é” time{}", source.getLock(),System.currentTimeMillis());
                 try {
                     if (target.getLock().tryLock()) {
-                        log.info("{}ÒÑ»ñÈ¡Ëø time{}", target.getLock(),System.currentTimeMillis());
+                        log.info("{}å·²è·å–é” time{}", target.getLock(),System.currentTimeMillis());
                         try {
-                            log.info("¿ªÊ¼×ªÕË²Ù×÷");
+                            log.info("å¼€å§‹è½¬è´¦æ“ä½œ");
                             source.setBalance(source.getBalance() - amt);
                             target.setBalance(target.getBalance() + amt);
-                            log.info("½áÊø×ªÕË²Ù×÷ source{} target{}", source.getBalance(), target.getBalance());
+                            log.info("ç»“æŸè½¬è´¦æ“ä½œ source{} target{}", source.getBalance(), target.getBalance());
                             isContinue=false;
                         } finally {
-                            log.info("{}ÊÍ·ÅËø time{}", target.getLock(),System.currentTimeMillis());
+                            log.info("{}é‡Šæ”¾é” time{}", target.getLock(),System.currentTimeMillis());
                             target.getLock().unlock();
                         }
                     }
                 } finally {
-                    log.info("{}ÊÍ·ÅËø time{}", source.getLock(),System.currentTimeMillis());
+                    log.info("{}é‡Šæ”¾é” time{}", source.getLock(),System.currentTimeMillis());
                     source.getLock().unlock();
                 }
             }

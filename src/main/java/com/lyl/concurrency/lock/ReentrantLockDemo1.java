@@ -1,11 +1,10 @@
 package com.lyl.concurrency.lock;
-
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author¡¾ÅÖ¹öÖíÑ§±à³Ì¡¿
+ * @Author å¾®ä¿¡å…¬ä¼—å·ã€èƒ–æ»šçŒªå­¦ç¼–ç¨‹ã€‘
  * @Date 2020/5/12 10:17
- * @Descripiton ¿ÉÖØÈëËø ¹¦ÄÜ1£º¿ÉÒÔÖØ¸´»ñÈ¡Ëø£¬µ«¼ÓËøºÍ½âËøĞèÒªÊÖ¶¯½øĞĞ£¬ÇÒ´ÎÊıĞèÒ»Ñù£¬·ñÔòÆäËûÏß³ÌÎŞ·¨»ñµÃËø¡£
+ * @Descripiton å¯é‡å…¥é” åŠŸèƒ½1ï¼šå¯ä»¥é‡å¤è·å–é”ï¼Œä½†åŠ é”å’Œè§£é”éœ€è¦æ‰‹åŠ¨è¿›è¡Œï¼Œä¸”æ¬¡æ•°éœ€ä¸€æ ·ï¼Œå¦åˆ™å…¶ä»–çº¿ç¨‹æ— æ³•è·å¾—é”ã€‚
  */
 public class ReentrantLockDemo1 {
     private static final ReentrantLock reentrantLock = new ReentrantLock();
@@ -13,35 +12,35 @@ public class ReentrantLockDemo1 {
 
     public static void main(String[] args) throws InterruptedException {
         ReentrantLockDemo1 demo1 = new ReentrantLockDemo1();
-        // ´´½¨Á½¸öÏß³Ì£¬Ö´ĞĞ add() ²Ù×÷
+        // åˆ›å»ºä¸¤ä¸ªçº¿ç¨‹ï¼Œæ‰§è¡Œ add() æ“ä½œ
         Thread th1 = new Thread(() -> {
             demo1.add10K();
         });
         Thread th2 = new Thread(() -> {
             demo1.add10K();
         });
-        // Æô¶¯Á½¸öÏß³Ì
+        // å¯åŠ¨ä¸¤ä¸ªçº¿ç¨‹
         th1.start();
         th2.start();
-        // µÈ´ıÁ½¸öÏß³ÌÖ´ĞĞ½áÊø
+        // ç­‰å¾…ä¸¤ä¸ªçº¿ç¨‹æ‰§è¡Œç»“æŸ
         th1.join();
         th2.join();
         System.out.println(get());
 
     }
     public static int get() {
-        // ÔÙ´Î»ñÈ¡Ëø
+        // å†æ¬¡è·å–é”
         reentrantLock.lock();
         try {
             return count;
         } finally {
-            // ±£Ö¤ËøÄÜÊÍ·Å
+            // ä¿è¯é”èƒ½é‡Šæ”¾
             reentrantLock.unlock();
         }
     }
 
     private void add10K() {
-        // »ñÈ¡Ëø
+        // è·å–é”
         reentrantLock.lock();
         try {
             int idx = 0;
@@ -49,7 +48,7 @@ public class ReentrantLockDemo1 {
                 count++;
             }
         } finally {
-            // ±£Ö¤ËøÄÜÊÍ·Å
+            // ä¿è¯é”èƒ½é‡Šæ”¾
             reentrantLock.unlock();
         }
 

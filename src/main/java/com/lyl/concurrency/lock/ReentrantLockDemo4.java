@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @Author Liuyanling
  * @Date 2020/5/12 10:17
- * @Descripiton ¿ÉÖØÈëËø ¹¦ÄÜ4£ºtryLock()Ö§³Ö³¬Ê±
+ * @Descripiton å¯é‡å…¥é” åŠŸèƒ½4ï¼štryLock()æ”¯æŒè¶…æ—¶
  */
 public class ReentrantLockDemo4 {
     private static final ReentrantLock reentrantLock = new ReentrantLock();
@@ -34,10 +34,10 @@ public class ReentrantLockDemo4 {
     public static void testTryLock() throws InterruptedException {
 
         System.out.println(System.currentTimeMillis());
-        //ÉèÖÃ³¬Ê±Ê±¼ä
+        //è®¾ç½®è¶…æ—¶æ—¶é—´
         if (reentrantLock.tryLock(10, TimeUnit.SECONDS)) {
             try {
-                System.out.println("Ïß³Ì" + Thread.currentThread().getName());
+                System.out.println("çº¿ç¨‹" + Thread.currentThread().getName());
             }finally {
                 reentrantLock.unlock();
             }
@@ -47,12 +47,12 @@ public class ReentrantLockDemo4 {
 
 
     public static void testLock() {
-        //Óëlock½øĞĞ¶Ô±È Ê¹ÓÃlock·½·¨Èç¹û²»ÊÍ·ÅËø£¬ÄÇÃ´»áÒ»Ö±³ÖÓĞ¡£
+        //ä¸lockè¿›è¡Œå¯¹æ¯” ä½¿ç”¨lockæ–¹æ³•å¦‚æœä¸é‡Šæ”¾é”ï¼Œé‚£ä¹ˆä¼šä¸€ç›´æŒæœ‰ã€‚
         reentrantLock.lock();
         try {
-            System.out.println("Ïß³Ì" + Thread.currentThread().getName());
+            System.out.println("çº¿ç¨‹" + Thread.currentThread().getName());
         } finally {
-            // ±£Ö¤ËøÄÜÊÍ·Å
+            // ä¿è¯é”èƒ½é‡Šæ”¾
             //reentrantLock.unlock();
         }
     }

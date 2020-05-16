@@ -11,7 +11,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
 @ThreadSafe
-public class AtomicExample6 {
+/**
+ * @Author: 微信公众号【胖滚猪学编程】
+ * @Date 2020/5/10
+ */
+public class AtomicBooleanDemo {
 
     private static AtomicBoolean isHappened = new AtomicBoolean(false);
 

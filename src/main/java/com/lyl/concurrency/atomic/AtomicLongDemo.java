@@ -11,7 +11,11 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
 @ThreadSafe
-public class AtomicExample2 {
+/**
+ * @Author: 微信公众号【胖滚猪学编程】
+ * @Date 2020/5/10
+ */
+public class AtomicLongDemo {
 
     // 请求总数
     public static int clientTotal = 5000;
