@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author Liuyanling
+ * @Author 公众号【胖滚猪学编程】
  * @Date 2020/5/11 16:16
  * @Descripiton
  */

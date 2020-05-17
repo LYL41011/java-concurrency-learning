@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author Liuyanling
+ * @Author 公众号【胖滚猪学编程】
  * @Date 2020/5/12 10:17
  * @Descripiton 可重入锁 功能4：tryLock()支持超时
  */

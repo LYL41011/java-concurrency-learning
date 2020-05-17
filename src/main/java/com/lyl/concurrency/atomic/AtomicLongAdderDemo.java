@@ -9,12 +9,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.LongAdder;
 
-@Slf4j
-@ThreadSafe
+
 /**
  * @Author: 微信公众号【胖滚猪学编程】
  * @Date 2020/5/10
  */
+@Slf4j
+@ThreadSafe
 public class AtomicLongAdderDemo {
 
     // 请求总数

@@ -6,12 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
-@Slf4j
-@ThreadSafe
 /**
  * @Author: 微信公众号【胖滚猪学编程】
  * @Date 2020/5/10
  */
+@Slf4j
+@ThreadSafe
 public class AtomicIntegerFieldUpdaterDemo {
 
     private static AtomicIntegerFieldUpdater<AtomicIntegerFieldUpdaterDemo> updater =

@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @Author Liuyanling
+ * @Author 公众号【胖滚猪学编程】
  * @Date 2020/5/12 10:17
  * @Descripiton 可重入锁 功能5：提供能够中断等待锁的线程的机制，lockInterruptibly方法
  * ReentrantLock的中断和非中断加锁模式的区别在于：线程尝试获取锁操作失败后，在等待过程中，如果该线程被其他线程中断了，它是如何响应中断请求的？？
