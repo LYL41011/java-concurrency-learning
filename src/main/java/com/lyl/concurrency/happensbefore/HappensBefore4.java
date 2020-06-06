@@ -1,9 +1,5 @@
 package com.lyl.concurrency.happensbefore;
 
-import com.lyl.concurrency.synchroniz.TestSynchronized1;
-
-import java.util.concurrent.*;
-
 /**
  * 四、管程锁规则
  * 管程是一种通用的同步原语，synchronized 是 Java 里对管程的实现。

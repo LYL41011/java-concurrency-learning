@@ -1,4 +1,4 @@
-package com.lyl.concurrency.syncContainer;
+package com.lyl.concurrency.container.synccontainer;
 
 import java.util.Iterator;
 import java.util.Vector;

@@ -1,4 +1,4 @@
-package com.lyl.concurrency.synchroniz;
+package com.lyl.concurrency.lock;
 
 /**
  * 目的:解决原子性问题

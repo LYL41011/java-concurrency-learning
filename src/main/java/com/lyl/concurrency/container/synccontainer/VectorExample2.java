@@ -1,9 +1,12 @@
-package com.lyl.concurrency.syncContainer;
+package com.lyl.concurrency.container.synccontainer;
 
 import com.lyl.concurrency.annoations.NotThreadSafe;
 
 import java.util.Vector;
 
+/**
+ * 使用同步容器 也有可能导致线程不安全问题
+ */
 @NotThreadSafe
 public class VectorExample2 {
 

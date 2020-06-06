@@ -1,4 +1,4 @@
-package com.lyl.concurrency.synchroniz;
+package com.lyl.concurrency.lock;
 
 /**
  * count ++是非原子性操作，volatile在这里没用了！只能用synchronized

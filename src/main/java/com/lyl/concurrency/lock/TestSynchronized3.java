@@ -1,4 +1,4 @@
-package com.lyl.concurrency.synchroniz;
+package com.lyl.concurrency.lock;
 
 /**
  * 深入分析锁定的对象和受保护资源的关系，综合考虑受保护资源的访问路径，多方面考量才能用好互斥锁

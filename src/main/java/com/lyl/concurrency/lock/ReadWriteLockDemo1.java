@@ -27,16 +27,12 @@ public class ReadWriteLockDemo1 {
 
     volatile boolean cacheValid;
 
-    final ReadWriteLock rwl =
-
-            new ReentrantReadWriteLock();
+    final ReadWriteLock rwl = new ReentrantReadWriteLock();
 
     // 读锁
-
     final Lock r = rwl.readLock();
 
     // 写锁
-
     final Lock w = rwl.writeLock();
 
 

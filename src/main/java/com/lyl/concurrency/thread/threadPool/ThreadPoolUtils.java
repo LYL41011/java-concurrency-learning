@@ -10,9 +10,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolUtils {
     public static ThreadPoolExecutor getThreadPool() {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 50,
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(50, 150,
                 1000L, TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(5)
+                new ArrayBlockingQueue<>(50)
                 , new ThreadPoolExecutor.AbortPolicy());
         return executor;
 

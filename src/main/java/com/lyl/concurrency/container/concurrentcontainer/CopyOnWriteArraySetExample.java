@@ -1,10 +1,10 @@
-package com.lyl.concurrency.concurrent;
+package com.lyl.concurrency.container.concurrentcontainer;
 
 import com.lyl.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,7 +12,7 @@ import java.util.concurrent.Semaphore;
 
 @Slf4j
 @ThreadSafe
-public class ConcurrentHashMapExample {
+public class CopyOnWriteArraySetExample {
 
     // 请求总数
     public static int clientTotal = 5000;
@@ -20,7 +20,7 @@ public class ConcurrentHashMapExample {
     // 同时并发执行的线程数
     public static int threadTotal = 200;
 
-    private static Map<Integer, Integer> map = new ConcurrentHashMap<>();
+    private static Set<Integer> set = new CopyOnWriteArraySet<>();
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -41,10 +41,10 @@ public class ConcurrentHashMapExample {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("size:{}", map.size());
+        log.info("size:{}", set.size());
     }
 
     private static void update(int i) {
-        map.put(i, i);
+        set.add(i);
     }
 }
